@@ -45,3 +45,23 @@ const bookStore = {
 
 // Write your code here!
 
+//Update the header element with the bookstore name
+const bookStoreTitle = document.querySelector('#header');
+bookStoreTitle.textContent = bookStore.name;
+
+// Create loop to display each book's details
+bookStore.books.forEach((book) => {
+    //Create elements
+    const bookContainer = document.createElement("li");
+    const bookTitle = document.createElement('h3');
+    const bookAuthor = document.createElement('p');
+    const bookImage = document.createElement('img');
+    //set content
+    bookTitle.textContent = book.title;
+    bookAuthor.textContent = `by ${book.author}`;
+    bookImage.src = book.imageUrl;
+    //append to the DOM
+    const bookList = document.querySelector("#book-list");
+    bookContainer.append(bookTitle, bookAuthor, bookImage);
+    bookList.appendChild(bookContainer);
+})
